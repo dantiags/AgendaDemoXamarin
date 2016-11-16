@@ -1,4 +1,5 @@
 ﻿using PCLAppConfig;
+using Plugin.Geolocator;
 using Plugin.Media;
 using System;
 using System.Collections.Generic;
@@ -48,6 +49,20 @@ namespace AgendaDemo.Views
                     file.Dispose();
                     return stream;
                 });
+            };
+
+            btnGetGeoLocation.Clicked += async (sender, args) =>
+            {
+                var locator = CrossGeolocator.Current;
+                locator.DesiredAccuracy = 100; //100 is new default
+
+                var position = await locator.GetPositionAsync(timeoutMilliseconds: 10000);
+
+                lblLocation.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
+                var text = "Position Status: " + position.Timestamp + "\n";
+                text += "Position Latitude: " + position.Latitude + "\n";
+                text += "Position Longitude: " + position.Longitude;
+                lblLocation.Text = text;
             };
 
 
