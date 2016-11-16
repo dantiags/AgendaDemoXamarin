@@ -47,5 +47,7 @@
 	<string>LaunchScreen</string>
 	<key>CFBundleShortVersionString</key>
 	<string></string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Please allow us to use your location.</string>
 </dict>
 </plist>

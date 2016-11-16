@@ -7,6 +7,6 @@
     <Button x:Name="btnTakePhoto" Text="Take Photo" />
     <Image x:Name="imgTaken"/>
     <Button x:Name="btnGetGeoLocation" Text="Get Location" />
-    <Label x:Name="lblLocation" Font="Small" TextColor="White"/>
+    <Label x:Name="lblLocation" Font="Small" TextColor="Black"/>
   </StackLayout>
 </ContentPage>

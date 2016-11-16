@@ -6,6 +6,7 @@ using Foundation;
 using UIKit;
 using System.Reflection;
 using PCLAppConfig;
+using CoreLocation;
 
 namespace AgendaDemo.iOS
 {
@@ -27,6 +28,14 @@ namespace AgendaDemo.iOS
             global::Xamarin.Forms.Forms.Init();
             Assembly assembly = typeof(App).GetTypeInfo().Assembly;
             ConfigurationManager.Initialise(assembly.GetManifestResourceStream("AgendaDemo.App.config"));
+
+            if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
+            {
+                var manager = new CLLocationManager();
+                manager.RequestWhenInUseAuthorization(); //This is used if you are doing anything in the foreground.
+                manager.RequestAlwaysAuthorization();// This is used if you want to scan in the background
+            }
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
