@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AgendaDemo.Views.ContactPage" Padding="10" Title="Contact">
+  <StackLayout>
+    <Label Text="{Binding FullName}" Font="Large" TextColor="White"></Label>
+    <Label Text="{Binding club_name}" Font="Small" TextColor="#BDBDBD"></Label>
+    <Label Text="{Binding location}" Font="Small" TextColor="#BDBDBD"></Label>
+  </StackLayout>
+
+</ContentPage>
