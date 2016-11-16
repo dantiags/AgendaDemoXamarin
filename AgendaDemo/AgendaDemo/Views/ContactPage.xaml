@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AgendaDemo.Views.ContactPage" Padding="10" Title="Contact">
   <StackLayout>
+    <Image Source="{Binding avatar}" HeightRequest="143" HorizontalOptions="Center" WidthRequest="143" Aspect="Fill" />
     <Label Text="{Binding FullName}" Font="Large" TextColor="White"></Label>
     <Label Text="{Binding club_name}" Font="Small" TextColor="#BDBDBD"></Label>
     <Label Text="{Binding location}" Font="Small" TextColor="#BDBDBD"></Label>
