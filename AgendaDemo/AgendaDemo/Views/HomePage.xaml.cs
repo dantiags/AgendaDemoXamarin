@@ -1,4 +1,5 @@
 ﻿using PCLAppConfig;
+using Plugin.Media;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,38 @@ namespace AgendaDemo.Views
             {
                 Navigation.PushAsync(new ContactListPage());
             };
+
+
+            btnTakePhoto.Clicked += async (sender, args) =>
+            {
+                await CrossMedia.Current.Initialize();
+
+                if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+                {
+                    DisplayAlert("No Camera", ":( No camera available.", "OK");
+                    return;
+                }
+                var fileName = "AgDemo_" + DateTime.Now.Millisecond.ToString() + ".jpg";
+                var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
+                {
+                    Directory = "AgendaDemo",
+                    Name = fileName
+                });
+
+                if (file == null)
+                    return;
+
+                await DisplayAlert("File Location", file.Path, "OK");
+
+                imgTaken.Source = ImageSource.FromStream(() =>
+                {
+                    var stream = file.GetStream();
+                    file.Dispose();
+                    return stream;
+                });
+            };
+
+
         }
     }
 }

@@ -4,5 +4,8 @@
              x:Class="AgendaDemo.Views.HomePage">
   <StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
     <Button x:Name="btnViewContacts" Text="View Contacts" />
+    <Button x:Name="btnTakePhoto" Text="Take Photo" />
+    <Image x:Name="imgTaken"/>
+    <Button x:Name="btnGetGeoLocation" Text="Get Location" />
   </StackLayout>
 </ContentPage>
